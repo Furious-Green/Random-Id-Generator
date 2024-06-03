@@ -1,10 +1,26 @@
 {
-    "name": "Random ID Generator",
-    "description": "Random ID Generator Extension",
+    "name": "Folha Paywall Reader",
+    "description": "Let's you read News through the Folha Paywall",
     "version": "1.0",
     "manifest_version": 3,
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.folha.uol.com.br/*"
+            ],
+            "run_at": "document_end",
+            "js": [
+                "contents.js"
+            ]
+        }
+    ],
     "action": {
-        "default_popup": "randomid.html",
+        "default_popup": "paywall.html",
         "default_icon": "icon.png"
     }
 }
